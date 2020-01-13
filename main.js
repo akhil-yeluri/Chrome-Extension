@@ -7,11 +7,12 @@ request.open('GET',FlickrRequest,true)
 request.onload =function() {
      
     data = JSON.parse(request.response)
-    let farmId=data.photos.photo[1].farm;
-    let serverId=data.photos.photo[1].server;
-    let id =data.photos.photo[1].id;
-    let secret=data.photos.photo[1].secret;
-    let title=data.photos.photo[1].title;
+    var index= Math.floor(Math.random() * Math.floor(data.photos.photo.length));
+    let farmId=data.photos.photo[index].farm;
+    let serverId=data.photos.photo[index].server;
+    let id =data.photos.photo[index].id;
+    let secret=data.photos.photo[index].secret;
+    let title=data.photos.photo[index].title;
     
     let FlickrUrl="https://farm"+farmId+".staticflickr.com/"+serverId+"/"+id+"_"+secret+"_b.jpg"
     //document.body.style.backgroundImage = "url("+Wallpapers[Math.floor(Math.random() * Wallpapers.length)]+")";
